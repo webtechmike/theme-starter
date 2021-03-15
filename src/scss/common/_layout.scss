@@ -1,0 +1,25 @@
+.app {
+  display: grid;
+  grid-template-areas: 'header header'
+                       'aside main'
+                       'footer footer';
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100px 1fr 100px;
+  height: 100vh;
+
+  .header {
+    grid-area: header;
+  }
+
+  .aside {
+    grid-area: aside;
+  }
+
+  .main {
+    grid-area: main;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}

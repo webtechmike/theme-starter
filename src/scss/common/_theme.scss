@@ -1,0 +1,23 @@
+$themebgs: (light: $white, dark: $black, obsidian: $obsidian, darkblue: $darkblue, firebrick: $firebrick, darkslategray: $darkslategray);
+
+.app {
+  @each $class, $bg in $themebgs {
+    &.#{$class} {
+      background-color: $bg;
+
+      @if(lightness($bg) > 50) {
+        color: $darkblue;
+
+        a {
+          color: $darkblue;
+        }
+      } @else {
+        color: $white;
+
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}

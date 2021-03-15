@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CONFIG from './config.js';
+
+import './scss/App.scss';
+
+import Header from './components/header';
+import Aside from './components/aside';
+import Main from './components/main';
+import Footer from './components/footer';
 
 function App() {
+  const [theme, setTheme] = useState(CONFIG.theme);
+  const themes = ['dark', 'light', 'firebrick', 'darkblue', 'darkslategray', 'obsidian'];
+  const setRandomTheme = themes => {
+    const index = Math.floor(Math.random() * (themes.length - 0)) + 0;
+    setTheme(themes[index]);
+  }
+  // const _themeToggle = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+  const _themeToggle = () => setRandomTheme(themes);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`app ${theme}`} data-theme={theme}>
+      <Header themeToggle={_themeToggle} />
+      <Aside list={CONFIG.nav} />
+      <Main heading={CONFIG.h1} content={CONFIG.content} />
+      <Footer />
     </div>
   );
 }
