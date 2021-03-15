@@ -10,4 +10,6 @@ const Aside = ({list}) => (
   </aside>
 );
 
-export default Aside;
+const MemoizedAside = React.memo(Aside);
+
+export default MemoizedAside;

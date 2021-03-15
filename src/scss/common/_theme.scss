@@ -1,23 +1,65 @@
-$themebgs: (light: $white, dark: $black, obsidian: $obsidian, darkblue: $darkblue, firebrick: $firebrick, darkslategray: $darkslategray);
+// sass-lint:disable-block no-color-keywords
+$themebgs: (
+  light: $white,
+  dark: $black,
+  obsidian: $obsidian,
+  darkblue: $darkblue,
+  firebrick: $firebrick,
+  darkslategray: $darkslategray
+);
 
-.app {
-  @each $class, $bg in $themebgs {
-    &.#{$class} {
-      background-color: $bg;
+@each $class, $bg in $themebgs {
+  .#{$class} {
+    background-color: $bg;
 
-      @if(lightness($bg) > 50) {
+    @if(lightness($bg) > 50) {
+      color: $darkblue;
+
+      a {
         color: $darkblue;
+      }
+    } @else {
+      color: $white;
 
-        a {
-          color: $darkblue;
-        }
-      } @else {
+      a {
         color: $white;
-
-        a {
-          color: $white;
-        }
       }
     }
+  }
+}
+
+// Default Mask
+// @TODO: consolidate and move values to vars
+.header {
+  background-color: transparentize($dark, 0.75);
+}
+
+.aside {
+  background-color: transparentize($dark, 0.5);
+}
+
+.main {
+  background-color: transparentize($dark, 0.25);
+}
+
+.footer {
+  background-color: transparentize($dark, 0.75);
+}
+
+.light {
+  .header {
+    background-color: transparentize($black, 0.95);
+  }
+
+  .aside {
+    background-color: transparentize($black, 0.8);
+  }
+
+  .main {
+    background-color: transparentize($black, 0.85);
+  }
+
+  .footer {
+    background-color: transparentize($black, 0.95);
   }
 }

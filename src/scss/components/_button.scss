@@ -1,0 +1,39 @@
+.button {
+  border: 0;
+  background-color: $white;
+  padding: 10px 20px;
+
+  .light & {
+    background-color: $darkblue;
+    color: $white;
+  }
+
+  &:hover,
+  &:active {
+    border: 0;
+
+    .light & {
+      color: $white;
+    }
+  }
+
+  &:hover {
+    background-color: $off-white;
+
+    .light & {
+      background-color: lighten($darkblue, 5%);
+    }
+  }
+
+  &:active {
+    background-color: $active;
+
+    .light & {
+      background-color: darken($darkblue, 20%);
+    }
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

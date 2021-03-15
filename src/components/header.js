@@ -1,9 +1,16 @@
 import React from 'react';
+import Button from './button';
+import Logo from './logo';
 
-const Header = props => (
+const Header = ({logo, themeToggle}) => (
   <header className="header">
-    <button id="theme-toggle" onClick={props.themeToggle}>GO</button>
-    {props.children}
+    <Logo src={logo} />
+    <Button
+      className="button"
+      onClick={themeToggle}
+    >
+      Random theme
+    </Button>
   </header>
 );
 
